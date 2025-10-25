@@ -4,9 +4,29 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
 
+
+
+  let portraitVideos = [
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338385/Project_4-_d0va5s.mp4",
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338349/For_Profile_nvyveu.mp4",
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338407/With_Mo_wcmprg.mp4",
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338415/Test2_vtxkve.mp4",
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338323/Assingmanet_dxppy0.mp4",
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338385/129_-_Nicolette_Fleischmann_-_11824_SW_Antarus_Ct_Port_St_Lucie-V2_snvjoz.mp4",
+
+  ];
+
+  let landscapeVideos = [ 
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338544/Job_1_After_Revision_jtwfsy.mp4",
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761384842/T-002-Oude_Nieuwelandseweg_3_Final_2_o9viuy.mp4",
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761384812/Michael_Fk_Liam_Thomas_-_Hold_Me.Mp3_rd1k9b.mp4",
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338560/T-006_o2fhun.mp4"
+  ];
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,7 +48,7 @@ export default function Home() {
       const result = await response.json();
       if (result.success) {
         alert("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         alert("Failed to send message. Please try again.");
       }
@@ -47,6 +67,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    // Handle video play/pause
     const videos = document.querySelectorAll("video");
 
     const handlePlay = (event) => {
@@ -61,11 +82,29 @@ export default function Home() {
       video.addEventListener("play", handlePlay);
     });
 
-    // Cleanup event listeners when component unmounts
     return () => {
       videos.forEach((video) => {
         video.removeEventListener("play", handlePlay);
       });
+    };
+  }, []);
+
+  useEffect(() => {
+    // Handle video play/pause - only one video plays at a time
+    const handlePlay = (event) => {
+      const allVideos = document.querySelectorAll("video");
+      allVideos.forEach((video) => {
+        if (video !== event.target && !video.paused) {
+          video.pause();
+        }
+      });
+    };
+
+    // Use event delegation on the document for better performance
+    document.addEventListener("play", handlePlay, true);
+
+    return () => {
+      document.removeEventListener("play", handlePlay, true);
     };
   }, []);
 
@@ -78,7 +117,6 @@ export default function Home() {
               <i className="bi bi-envelope d-flex align-items-center">
                 <a href="mailto:contact@example.com">contact@example.com</a>
               </i>
-
 
               <i className="bi bi-phone d-flex align-items-center ms-4">
                 <span>+92 349 9535028</span>
@@ -96,7 +134,6 @@ export default function Home() {
 
           <div className="container position-relative d-flex align-items-center justify-content-between">
             <a href="/" className="logo d-flex align-items-center">
-              {/* <Image width src="assets/img/logo.png" alt=""/>  */}
               <h1 className="sitename">
                 <img src="assets/img/mainlogo.png" alt="Karrar Visuals Logo" style={{ height: '40px', marginRight: '10px' }} />
               </h1>
@@ -105,10 +142,9 @@ export default function Home() {
             <nav id="navmenu" className="navmenu">
               <ul>
                 <li><a href="#hero" className="active">Home</a></li>
-                <li><a href="#about">About</a></li> 
+                <li><a href="#about">About</a></li>
                 <li><a href="#videos">Portfolio</a></li>
                 <li><a href="#team">Testimonials</a></li>
-
                 <li><a href="#contact">Contact</a></li>
               </ul>
               <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -129,9 +165,11 @@ export default function Home() {
               autoPlay
               muted
               loop
+              playsInline
+              preload="auto"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             >
-              <source src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338544/Job_1_After_Revision_jtwfsy.mp4" type="video/mp4" />
+              <source src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338555/T-003-Vossenlaan_24_Final_4_c0ctmk.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
 
@@ -144,7 +182,6 @@ export default function Home() {
             </div>
           </div>
 
-
           <ol className="carousel-indicators"></ol>
 
         </div>
@@ -153,41 +190,13 @@ export default function Home() {
 
       <section id="team" className="team section">
 
-
         <div className="container section-title" data-aos="fade-up">
           <h2>Testimonials</h2>
-          <p>Real stories from satisfied clients who trusted Karrar Visuals to bring their vision to life
-          </p>
+          <p>Real stories from satisfied clients who trusted Karrar Visuals to bring their vision to life</p>
         </div>
 
         <div className="container" data-aos="fade-up" data-aos-delay="100">
           <div className="row gy-5">
-            <div className="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200">
-              <div className="team-member">
-                <div className="member-img" style={{ aspectRatio: '9/16', overflow: 'hidden' }}>
-                  <video
-                    src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338415/Test2_vtxkve.mp4"
-                    className="img-fluid"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    controls
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="400">
-              <div className="team-member">
-                <div className="member-img" style={{ aspectRatio: '9/16', overflow: 'hidden' }}>
-                  <video
-                    src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338407/With_Mo_wcmprg.mp4"
-                    className="img-fluid"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    controls
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
             <div className="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="600">
               <div className="team-member">
                 <div className="member-img" style={{ aspectRatio: '9/16', overflow: 'hidden' }}>
@@ -196,25 +205,38 @@ export default function Home() {
                     className="img-fluid"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     controls
+                    preload="metadata"
                     alt=""
                   />
                 </div>
               </div>
             </div>
+            {portraitVideos.slice(1).map((videoSrc, index) => (
+              <div key={index} className="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay={600 + (index + 0) * 100}>
+                <div className="team-member">
+                  <div className="member-img" style={{ aspectRatio: '9/16', overflow: 'hidden' }}>
+                    <video
+                      src={videoSrc}
+                      className="img-fluid"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      controls
+                      preload="metadata"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+
+
           </div>
         </div>
 
-
       </section>
-
 
       <section id="videos" className="videos section">
 
         <div className="container section-title" data-aos="fade-up">
-          <h2>Videos</h2>
-          <p>At Karrar Visuals, we transform ideas into cinematic visuals that captivate, inspire, and connect with audiences.
-          </p>
-      
         </div>
         <div className="container">
 
@@ -227,21 +249,7 @@ export default function Home() {
                   <video
                     className="img-fluid rounded-4"
                     controls
-                    style={{ width: '100%' }}
-                  >
-                    <source src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338560/T-006_o2fhun.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              </div>
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap' }} data-aos="fade-up" data-aos-delay="250">
-              <div className="col-lg-6 content ps-0 ps-lg-5">
-
-                <div className="position-relative mt-4">
-                  <video
-                    className="img-fluid rounded-4"
-                    controls
+                    preload="metadata"
                     style={{ width: '100%' }}
                   >
                     <source src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338555/T-003-Vossenlaan_24_Final_4_c0ctmk.mp4" type="video/mp4" />
@@ -249,45 +257,24 @@ export default function Home() {
                   </video>
                 </div>
               </div>
-              <div className="col-lg-6 content ps-0 ps-lg-5">
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }} data-aos="fade-up" data-aos-delay="250">
 
-                <div className="position-relative mt-4">
-                  <video
-                    className="img-fluid rounded-4"
-                    controls
-                    style={{ width: '100%' }}
-                  >
-                    <source src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338544/Job_1_After_Revision_jtwfsy.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+              {landscapeVideos.map((videoSrc, index) => (
+                <div key={index} className="col-lg-6 content ps-0 ps-lg-5">
+                  <div className="position-relative mt-4">
+                    <video
+                      className="img-fluid rounded-4"
+                      controls
+                      preload="metadata"
+                      style={{ width: '100%' }}
+                    >
+                      <source src={videoSrc} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
                 </div>
-              </div>
-              <div className="col-lg-6 content ps-0 ps-lg-5">
-
-                <div className="position-relative mt-4">
-                  <video
-                    className="img-fluid rounded-4"
-                    controls
-                    style={{ width: '100%' }}
-                  >
-                    <source src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338625/Revaleiland_425_Horizantal_Revaleiland_425_Horizantal_V4_pxcygm.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              </div>
-              <div className="col-lg-6 content ps-0 ps-lg-5">
-
-                <div className="position-relative mt-4">
-                  <video
-                    className="img-fluid rounded-4"
-                    controls
-                    style={{ width: '100%' }}
-                  >
-                    <source src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338544/Job_1_After_Revision_jtwfsy.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              </div>
+              ))}
 
             </div>
           </div>
@@ -296,17 +283,15 @@ export default function Home() {
 
       </section>
 
-            <section id="about" className="about section">
+      <section id="about" className="about section">
 
         <div className="container section-title" data-aos="fade-up">
           <h2>About Us</h2>
-        
+
           <h2>Karrar Visuals is a creative studio specializing in real estate and commercial video editing, storytelling, and visual branding. We combine artistic vision with technical precision to produce videos that not only look stunning but also deliver results.
           </h2>
         </div>
       </section>
-
-      
 
       <section id="stats" className="stats section light-background">
 
@@ -351,194 +336,6 @@ export default function Home() {
         </div>
 
       </section>
-      {/* <  */}
-      {/* <section id="portfolio" className="portfolio section">
-
-
-        <div className="container section-title" data-aos="fade-up">
-          <h2>Portfolio</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-        </div>
-
-        <div className="container">
-
-          <div className="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-            <ul className="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-              <li data-filter="*" className="filter-active">All</li>
-
-            </ul>
-
-            <div className="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-              <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" className="img-fluid" alt="" />
-                <div className="portfolio-info">
-                  <h4>App 1</h4>
-                  <p>Lorem ipsum, dolor sit</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" className="img-fluid" alt="" />
-                <div className="portfolio-info">
-                  <h4>Product 1</h4>
-                  <p>Lorem ipsum, dolor sit</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" className="img-fluid" alt="" />
-                <div className="portfolio-info">
-                  <h4>Branding 1</h4>
-                  <p>Lorem ipsum, dolor sit</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" className="img-fluid" alt="" />
-                <div className="portfolio-info">
-                  <h4>App 2</h4>
-                  <p>Lorem ipsum, dolor sit</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" className="img-fluid" alt="" />
-                <div className="portfolio-info">
-                  <h4>Product 2</h4>
-                  <p>Lorem ipsum, dolor sit</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" className="img-fluid" alt="" />
-                <div className="portfolio-info">
-                  <h4>Branding 2</h4>
-                  <p>Lorem ipsum, dolor sit</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" className="img-fluid" alt="" />
-                <div className="portfolio-info">
-                  <h4>App 3</h4>
-                  <p>Lorem ipsum, dolor sit</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" className="img-fluid" alt="" />
-                <div className="portfolio-info">
-                  <h4>Product 3</h4>
-                  <p>Lorem ipsum, dolor sit</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" className="img-fluid" alt="" />
-                <div className="portfolio-info">
-                  <h4>Branding 3</h4>
-                  <p>Lorem ipsum, dolor sit</p>
-                  <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section> */}
-      {/* <section id="team" className="team section">
-
-
-        <div className="container section-title" data-aos="fade-up">
-          <h2>Team</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-        </div>
-
-        <div className="container" data-aos="fade-up" data-aos-delay="100">
-
-          <div className="row gy-5">
-
-            <div className="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200">
-              <div className="team-member">
-                <div className="member-img">
-                  <img src="assets/img/team/team-1.jpg" className="img-fluid" alt="" />
-                </div>
-                <div className="member-info">
-                  <div className="social">
-                    <a href=""><i className="bi bi-twitter-x"></i></a>
-                    <a href=""><i className="bi bi-facebook"></i></a>
-                    <a href=""><i className="bi bi-instagram"></i></a>
-                    <a href=""><i className="bi bi-linkedin"></i></a>
-                  </div>
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="400">
-              <div className="team-member">
-                <div className="member-img">
-                  <img src="assets/img/team/team-2.jpg" className="img-fluid" alt="" />
-                </div>
-                <div className="member-info">
-                  <div className="social">
-                    <a href=""><i className="bi bi-twitter-x"></i></a>
-                    <a href=""><i className="bi bi-facebook"></i></a>
-                    <a href=""><i className="bi bi-instagram"></i></a>
-                    <a href=""><i className="bi bi-linkedin"></i></a>
-                  </div>
-                  <h4>Sarah Jhonson</h4>
-                  <span>Product Manager</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="600">
-              <div className="team-member">
-                <div className="member-img">
-                  <img src="assets/img/team/team-3.jpg" className="img-fluid" alt="" />
-                </div>
-                <div className="member-info">
-                  <div className="social">
-                    <a href=""><i className="bi bi-twitter-x"></i></a>
-                    <a href=""><i className="bi bi-facebook"></i></a>
-                    <a href=""><i className="bi bi-instagram"></i></a>
-                    <a href=""><i className="bi bi-linkedin"></i></a>
-                  </div>
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section> */}
 
       <section id="contact" className="contact section">
         <div className="container section-title" data-aos="fade-up">
@@ -576,7 +373,6 @@ export default function Home() {
 
           </div>
 
-          {/* React Web3Forms Contact Form */}
           <form
             onSubmit={handleSubmit}
             className="php-email-form row gy-4"
@@ -611,7 +407,7 @@ export default function Home() {
               <input
                 type="text"
                 name="subject"
-                value={formData.subject || ""}
+                value={formData.subject}
                 onChange={handleChange}
                 placeholder="Subject"
                 className="form-control"
@@ -643,7 +439,6 @@ export default function Home() {
         </div>
       </section>
 
-
       <footer id="footer" className="footer light-background">
 
         <div className="container footer-top">
@@ -659,8 +454,6 @@ export default function Home() {
                 <p><strong>Email:</strong> <span>info@example.com</span></p>
               </div>
               <div className="social-links d-flex mt-4">
-                {/* <a href=""><i className="bi bi-twitter-x"></i></a> */}
-                {/* <a href=""><i className="bi bi-facebook"></i></a> */}
                 <a href=""><i className="bi bi-instagram"></i></a>
                 <a href=""><i className="bi bi-linkedin"></i></a>
               </div>
@@ -671,7 +464,6 @@ export default function Home() {
               <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About us</a></li>
-                <li><a href="#">Videos</a></li>
                 <li><a href="#">Terms of service</a></li>
                 <li><a href="#">Privacy policy</a></li>
               </ul>
@@ -682,14 +474,10 @@ export default function Home() {
               <ul>
                 <li><a href="#">Real State Edits</a></li>
                 <li><a href="#">Promotional Edits</a></li>
-                <li><a href="#">YouTube Videos</a></li>
                 <li><a href="#">Event Highlights</a></li>
                 <li><a href="#">Social Media Reels</a></li>
-
               </ul>
             </div>
-
-
 
           </div>
         </div>
@@ -697,15 +485,12 @@ export default function Home() {
         <div className="container copyright text-center mt-4">
           <p>© <span>Copyright</span> <strong className="px-1 sitename">Karrar</strong> <span>All Rights Reserved</span></p>
           <div className="credits">
-            All the links in the footer should remain intact.
-            You can delete the links only if you've purchased the pro version.
-            Purchase the pro version with working PHP/AJAX contact form: [buy-url]
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
           </div>
         </div>
 
       </footer>
     </main>
-
   );
 }
+
