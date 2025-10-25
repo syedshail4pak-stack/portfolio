@@ -16,12 +16,21 @@ export default function Home() {
 
   ];
 
-  let landscapeVideos = [ 
+  let landscapeVideos = [
     "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338544/Job_1_After_Revision_jtwfsy.mp4",
     "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761384842/T-002-Oude_Nieuwelandseweg_3_Final_2_o9viuy.mp4",
     "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761384812/Michael_Fk_Liam_Thomas_-_Hold_Me.Mp3_rd1k9b.mp4",
     "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338560/T-006_o2fhun.mp4"
   ];
+
+  // Add this array at the top with your other arrays
+  const resumeData = {
+    pdfUrl: "/assets/suhail-resume.pdf", // Update with your actual PDF path
+    downloadName: "Karrar_Visuals_Resume.pdf"
+  };
+
+
+
 
   const [formData, setFormData] = useState({
     name: "",
@@ -145,6 +154,7 @@ export default function Home() {
                 <li><a href="#about">About</a></li>
                 <li><a href="#videos">Portfolio</a></li>
                 <li><a href="#team">Testimonials</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
               <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -337,6 +347,183 @@ export default function Home() {
 
       </section>
 
+      <section id="resume" className="resume section" style={{ padding: '60px 0', background: '#f8f9fa' }}>
+        <div className="container section-title" data-aos="fade-up">
+          <h2>Resume</h2>
+          <p>Download my professional resume to learn more about my experience and skills</p>
+        </div>
+
+        <div className="container" data-aos="fade-up" data-aos-delay="100">
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div style={{
+                background: '#fff',
+                borderRadius: '20px',
+                padding: '40px',
+                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+              }}>
+                {/* Resume Preview */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '30px',
+                  marginBottom: '30px',
+                  paddingBottom: '30px',
+                  borderBottom: '2px solid #f0f0f0',
+                  flexWrap: 'wrap'
+                }}>
+                  <div style={{
+                    width: '100px',
+                    height: '100px',
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    borderRadius: '15px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <i className="bi bi-file-earmark-pdf" style={{ fontSize: '50px', color: '#fff' }}></i>
+                  </div>
+                  <div>
+                    <h3 style={{ margin: '0 0 10px 0', fontSize: '28px', fontWeight: '700', color: '#333' }}>
+                      Professional Resume
+                    </h3>
+                    <p style={{ margin: '5px 0', color: '#666', fontSize: '16px' }}>
+                      Video Editor & Creative Director
+                    </p>
+                    <p style={{ fontSize: '14px', color: '#999', margin: '5px 0' }}>
+                      PDF Document
+                    </p>
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div style={{
+                  display: 'flex',
+                  gap: '15px',
+                  marginBottom: '30px',
+                  flexWrap: 'wrap'
+                }}>
+                  <a
+                    href={resumeData.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      flex: 1,
+                      minWidth: '180px',
+                      padding: '15px 30px',
+                      borderRadius: '50px',
+                      fontWeight: '600',
+                      fontSize: '16px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '10px',
+                      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                      color: '#fff',
+                      border: 'none',
+                      textDecoration: 'none',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.transform = 'translateY(-2px)';
+                      e.target.style.boxShadow = '0 8px 20px rgba(102, 126, 234, 0.4)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.transform = 'translateY(0)';
+                      e.target.style.boxShadow = 'none';
+                    }}
+                  >
+                    <i className="bi bi-eye"></i> View Resume
+                  </a>
+                  <a
+                    href={resumeData.pdfUrl}
+                    download={resumeData.downloadName}
+                    style={{
+                      flex: 1,
+                      minWidth: '180px',
+                      padding: '15px 30px',
+                      borderRadius: '50px',
+                      fontWeight: '600',
+                      fontSize: '16px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '10px',
+                      background: '#fff',
+                      color: '#667eea',
+                      border: '2px solid #667eea',
+                      textDecoration: 'none',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.background = '#667eea';
+                      e.target.style.color = '#fff';
+                      e.target.style.transform = 'translateY(-2px)';
+                      e.target.style.boxShadow = '0 8px 20px rgba(102, 126, 234, 0.3)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.background = '#fff';
+                      e.target.style.color = '#667eea';
+                      e.target.style.transform = 'translateY(0)';
+                      e.target.style.boxShadow = 'none';
+                    }}
+                  >
+                    <i className="bi bi-download"></i> Download
+                  </a>
+                </div>
+
+                {/* Highlights */}
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                  gap: '20px',
+                  flexWrap: 'wrap'
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    padding: '12px 20px',
+                    background: '#f8f9fa',
+                    borderRadius: '50px',
+                    transition: 'all 0.3s ease'
+                  }}>
+                    <i className="bi bi-award" style={{ fontSize: '24px', color: '#667eea' }}></i>
+                    <span style={{ fontWeight: '600', fontSize: '14px' }}>5+ Years Experience</span>
+                  </div>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    padding: '12px 20px',
+                    background: '#f8f9fa',
+                    borderRadius: '50px',
+                    transition: 'all 0.3s ease'
+                  }}>
+                    <i className="bi bi-camera-video" style={{ fontSize: '24px', color: '#667eea' }}></i>
+                    <span style={{ fontWeight: '600', fontSize: '14px' }}>500+ Projects</span>
+                  </div>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    padding: '12px 20px',
+                    background: '#f8f9fa',
+                    borderRadius: '50px',
+                    transition: 'all 0.3s ease'
+                  }}>
+                    <i className="bi bi-star" style={{ fontSize: '24px', color: '#667eea' }}></i>
+                    <span style={{ fontWeight: '600', fontSize: '14px' }}>Award Winning</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="contact section">
         <div className="container section-title" data-aos="fade-up">
           <h2>Contact</h2>
@@ -426,11 +613,27 @@ export default function Home() {
               ></textarea>
             </div>
 
-            <div className="col-md-12 text-center">
+            <div className="col-md-12 text-center" >
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn btn-primary"
+                className="btn btn-primary" style={{
+                  flex: 1,
+                  minWidth: '180px',
+                  padding: '15px 30px',
+                  borderRadius: '50px',
+                  fontWeight: '600',
+                  fontSize: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  color: '#fff',
+                  border: 'none',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s ease'
+                }}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
