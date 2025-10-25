@@ -105,9 +105,8 @@ export default function Home() {
             <nav id="navmenu" className="navmenu">
               <ul>
                 <li><a href="#hero" className="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li> 
+                <li><a href="#videos">Portfolio</a></li>
                 <li><a href="#team">Testimonials</a></li>
 
                 <li><a href="#contact">Contact</a></li>
@@ -130,7 +129,7 @@ export default function Home() {
               autoPlay
               muted
               loop
-              style={{ width: '100%' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             >
               <source src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338544/Job_1_After_Revision_jtwfsy.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -139,9 +138,9 @@ export default function Home() {
             <div className="carousel-container">
               <h2>Welcome to Karrar Visuals<br /></h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Your story deserves more than just a video — we make visuals that inspire, connect, and convert.
               </p>
-              <a href="#featured-services" className="btn-get-started">Get Started</a>
+              <a href="#contact" className="btn-get-started">Contact</a>
             </div>
           </div>
 
@@ -157,7 +156,8 @@ export default function Home() {
 
         <div className="container section-title" data-aos="fade-up">
           <h2>Testimonials</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+          <p>Real stories from satisfied clients who trusted Karrar Visuals to bring their vision to life
+          </p>
         </div>
 
         <div className="container" data-aos="fade-up" data-aos-delay="100">
@@ -207,11 +207,14 @@ export default function Home() {
 
       </section>
 
-      <section id="about" className="about section">
+
+      <section id="videos" className="videos section">
 
         <div className="container section-title" data-aos="fade-up">
-          <h2>About</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+          <h2>Videos</h2>
+          <p>At Karrar Visuals, we transform ideas into cinematic visuals that captivate, inspire, and connect with audiences.
+          </p>
+      
         </div>
         <div className="container">
 
@@ -220,7 +223,7 @@ export default function Home() {
             <div className="" data-aos="fade-up" data-aos-delay="250">
               <div className="content ps-0 ps-lg-5">
 
-                <div className="position-relative mt-4"> 
+                <div className="position-relative mt-4">
                   <video
                     className="img-fluid rounded-4"
                     controls
@@ -232,10 +235,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div style={{display:'flex' , flexWrap: 'wrap'}} data-aos="fade-up" data-aos-delay="250">
+            <div style={{ display: 'flex', flexWrap: 'wrap' }} data-aos="fade-up" data-aos-delay="250">
               <div className="col-lg-6 content ps-0 ps-lg-5">
 
-                <div className="position-relative mt-4"> 
+                <div className="position-relative mt-4">
                   <video
                     className="img-fluid rounded-4"
                     controls
@@ -248,7 +251,7 @@ export default function Home() {
               </div>
               <div className="col-lg-6 content ps-0 ps-lg-5">
 
-                <div className="position-relative mt-4"> 
+                <div className="position-relative mt-4">
                   <video
                     className="img-fluid rounded-4"
                     controls
@@ -261,7 +264,7 @@ export default function Home() {
               </div>
               <div className="col-lg-6 content ps-0 ps-lg-5">
 
-                <div className="position-relative mt-4"> 
+                <div className="position-relative mt-4">
                   <video
                     className="img-fluid rounded-4"
                     controls
@@ -274,7 +277,7 @@ export default function Home() {
               </div>
               <div className="col-lg-6 content ps-0 ps-lg-5">
 
-                <div className="position-relative mt-4"> 
+                <div className="position-relative mt-4">
                   <video
                     className="img-fluid rounded-4"
                     controls
@@ -292,41 +295,18 @@ export default function Home() {
         </div>
 
       </section>
-      <section id="why-us" className="why-us section">
 
-        <div className="container">
+            <section id="about" className="about section">
 
-          <div className="row gy-4">
-
-            <div className="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-              <div className="card-item">
-                <span>01</span>
-                <h4><a href="" className="stretched-link">Lorem Ipsum</a></h4>
-                <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
-              </div>
-            </div>
-
-            <div className="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-              <div className="card-item">
-                <span>02</span>
-                <h4><a href="" className="stretched-link">Repellat Nihil</a></h4>
-                <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
-              </div>
-            </div>
-
-            <div className="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-              <div className="card-item">
-                <span>03</span>
-                <h4><a href="" className="stretched-link">Ad ad velit qui</a></h4>
-                <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
-              </div>
-            </div>
-
-          </div>
-
+        <div className="container section-title" data-aos="fade-up">
+          <h2>About Us</h2>
+        
+          <h2>Karrar Visuals is a creative studio specializing in real estate and commercial video editing, storytelling, and visual branding. We combine artistic vision with technical precision to produce videos that not only look stunning but also deliver results.
+          </h2>
         </div>
-
       </section>
+
+      
 
       <section id="stats" className="stats section light-background">
 
@@ -559,173 +539,173 @@ export default function Home() {
         </div>
 
       </section> */}
-       
+
       <section id="contact" className="contact section">
-  <div className="container section-title" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-  </div>
-
-  <div className="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div className="row gy-4">
-
-      <div className="col-lg-6">
-        <div className="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
-          <i className="bi bi-geo-alt"></i>
-          <h3>Address</h3>
-          <p>Islamabad, Pakistan</p>
+        <div className="container section-title" data-aos="fade-up">
+          <h2>Contact</h2>
+          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
         </div>
-      </div>
 
-      <div className="col-lg-3 col-md-6">
-        <div className="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
-          <i className="bi bi-telephone"></i>
-          <h3>Call Us</h3>
-          <p>+92 349 9535028</p>
-        </div>
-      </div>
+        <div className="container" data-aos="fade-up" data-aos-delay="100">
 
-      <div className="col-lg-3 col-md-6">
-        <div className="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
-          <i className="bi bi-envelope"></i>
-          <h3>Email Us</h3>
-          <p>info@example.com</p>
-        </div>
-      </div>
+          <div className="row gy-4">
 
-    </div>
+            <div className="col-lg-6">
+              <div className="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+                <i className="bi bi-geo-alt"></i>
+                <h3>Address</h3>
+                <p>Islamabad, Pakistan</p>
+              </div>
+            </div>
 
-    {/* React Web3Forms Contact Form */}
-    <form
-      onSubmit={handleSubmit}
-      className="php-email-form row gy-4"
-      data-aos="fade-up"
-      data-aos-delay="400"
-    >
-      <div className="col-md-6">
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Your Name"
-          required
-          className="form-control"
-        />
-      </div>
+            <div className="col-lg-3 col-md-6">
+              <div className="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+                <i className="bi bi-telephone"></i>
+                <h3>Call Us</h3>
+                <p>+92 349 9535028</p>
+              </div>
+            </div>
 
-      <div className="col-md-6">
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Your Email"
-          required
-          className="form-control"
-        />
-      </div>
+            <div className="col-lg-3 col-md-6">
+              <div className="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
+                <i className="bi bi-envelope"></i>
+                <h3>Email Us</h3>
+                <p>info@example.com</p>
+              </div>
+            </div>
 
-      <div className="col-md-12">
-        <input
-          type="text"
-          name="subject"
-          value={formData.subject || ""}
-          onChange={handleChange}
-          placeholder="Subject"
-          className="form-control"
-        />
-      </div>
-
-      <div className="col-md-12">
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          rows="6"
-          placeholder="Message"
-          required
-          className="form-control"
-        ></textarea>
-      </div>
-
-      <div className="col-md-12 text-center">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="btn btn-primary"
-        >
-          {isSubmitting ? "Sending..." : "Send Message"}
-        </button>
-      </div>
-    </form>
-  </div>
-</section>
-
-
-  <footer id="footer" className="footer light-background">
-
-    <div className="container footer-top">
-      <div className="row gy-4">
-        <div className="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" className="logo d-flex align-items-center">
-            <span className="sitename">Karrar</span>
-          </a>
-          <div className="footer-contact pt-3">
-            <p>Islamabad Pakistan</p>
-            <p></p>
-            <p className="mt-3"><strong>Phone:</strong> <span>+92 349 9535028</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
           </div>
-          <div className="social-links d-flex mt-4">
-            {/* <a href=""><i className="bi bi-twitter-x"></i></a> */}
-            {/* <a href=""><i className="bi bi-facebook"></i></a> */}
-            <a href=""><i className="bi bi-instagram"></i></a>
-            <a href=""><i className="bi bi-linkedin"></i></a>
+
+          {/* React Web3Forms Contact Form */}
+          <form
+            onSubmit={handleSubmit}
+            className="php-email-form row gy-4"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div className="col-md-6">
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                required
+                className="form-control"
+              />
+            </div>
+
+            <div className="col-md-6">
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Your Email"
+                required
+                className="form-control"
+              />
+            </div>
+
+            <div className="col-md-12">
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject || ""}
+                onChange={handleChange}
+                placeholder="Subject"
+                className="form-control"
+              />
+            </div>
+
+            <div className="col-md-12">
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="6"
+                placeholder="Message"
+                required
+                className="form-control"
+              ></textarea>
+            </div>
+
+            <div className="col-md-12 text-center">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn btn-primary"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+
+      <footer id="footer" className="footer light-background">
+
+        <div className="container footer-top">
+          <div className="row gy-4">
+            <div className="col-lg-4 col-md-6 footer-about">
+              <a href="index.html" className="logo d-flex align-items-center">
+                <span className="sitename">Karrar</span>
+              </a>
+              <div className="footer-contact pt-3">
+                <p>Islamabad Pakistan</p>
+                <p></p>
+                <p className="mt-3"><strong>Phone:</strong> <span>+92 349 9535028</span></p>
+                <p><strong>Email:</strong> <span>info@example.com</span></p>
+              </div>
+              <div className="social-links d-flex mt-4">
+                {/* <a href=""><i className="bi bi-twitter-x"></i></a> */}
+                {/* <a href=""><i className="bi bi-facebook"></i></a> */}
+                <a href=""><i className="bi bi-instagram"></i></a>
+                <a href=""><i className="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+
+            <div className="col-lg-2 col-md-3 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Terms of service</a></li>
+                <li><a href="#">Privacy policy</a></li>
+              </ul>
+            </div>
+
+            <div className="col-lg-2 col-md-3 footer-links">
+              <h4>Our Editing Services</h4>
+              <ul>
+                <li><a href="#">Real State Edits</a></li>
+                <li><a href="#">Promotional Edits</a></li>
+                <li><a href="#">YouTube Videos</a></li>
+                <li><a href="#">Event Highlights</a></li>
+                <li><a href="#">Social Media Reels</a></li>
+
+              </ul>
+            </div>
+
+
+
           </div>
         </div>
 
-        <div className="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
+        <div className="container copyright text-center mt-4">
+          <p>© <span>Copyright</span> <strong className="px-1 sitename">Karrar</strong> <span>All Rights Reserved</span></p>
+          <div className="credits">
+            All the links in the footer should remain intact.
+            You can delete the links only if you've purchased the pro version.
+            Purchase the pro version with working PHP/AJAX contact form: [buy-url]
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by
+          </div>
         </div>
 
-        <div className="col-lg-2 col-md-3 footer-links">
-          <h4>Our Editing Services</h4>
-          <ul> 
-            <li><a href="#">Real State Edits</a></li>
-            <li><a href="#">Promotional Edits</a></li>
-            <li><a href="#">YouTube Videos</a></li>
-            <li><a href="#">Event Highlights</a></li>
-            <li><a href="#">Social Media Reels</a></li> 
-            
-          </ul>
-        </div>
-
-         
-
-      </div>
-    </div>
-
-    <div className="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong className="px-1 sitename">Karrar</strong> <span>All Rights Reserved</span></p>
-      <div className="credits">
-        All the links in the footer should remain intact. 
-        You can delete the links only if you've purchased the pro version.  
-        Purchase the pro version with working PHP/AJAX contact form: [buy-url] 
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by  
-      </div>
-    </div>
-
-  </footer>
+      </footer>
     </main>
-    
+
   );
 }
