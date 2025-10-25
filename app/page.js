@@ -20,7 +20,7 @@ export default function Home() {
     "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338544/Job_1_After_Revision_jtwfsy.mp4",
     "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761384842/T-002-Oude_Nieuwelandseweg_3_Final_2_o9viuy.mp4",
     "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761384812/Michael_Fk_Liam_Thomas_-_Hold_Me.Mp3_rd1k9b.mp4",
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338560/T-006_o2fhun.mp4"
+    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338560/T-006_o2fhun.mp4",
   ];
 
   // Add this array at the top with your other arrays
@@ -124,7 +124,7 @@ export default function Home() {
           <div className="container d-flex justify-content-center justify-content-md-between">
             <div className="contact-info d-flex align-items-center">
               <i className="bi bi-envelope d-flex align-items-center">
-                <a href="mailto:contact@example.com">contact@example.com</a>
+                <a href="mailto:syedshail4pak@gmail.com">syedshail4pak@gmail.com</a>
               </i>
 
               <i className="bi bi-phone d-flex align-items-center ms-4">
@@ -554,7 +554,7 @@ export default function Home() {
               <div className="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
                 <i className="bi bi-envelope"></i>
                 <h3>Email Us</h3>
-                <p>info@example.com</p>
+                <p>syedshail4pak@gmail.com</p>
               </div>
             </div>
 
@@ -654,7 +654,7 @@ export default function Home() {
                 <p>Islamabad Pakistan</p>
                 <p></p>
                 <p className="mt-3"><strong>Phone:</strong> <span>+92 349 9535028</span></p>
-                <p><strong>Email:</strong> <span>info@example.com</span></p>
+                <p><strong>Email:</strong> <span>karrarvisuals@digitalempowermentnetwork.org</span></p>
               </div>
               <div className="social-links d-flex mt-4">
                 <a href=""><i className="bi bi-instagram"></i></a>
