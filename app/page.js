@@ -6,23 +6,56 @@ export default function Home() {
 
 
 
+  // Updated data structure with captions
   let portraitVideos = [
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338385/Project_4-_d0va5s.mp4",
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338349/For_Profile_nvyveu.mp4",
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338407/With_Mo_wcmprg.mp4",
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338415/Test2_vtxkve.mp4",
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338323/Assingmanet_dxppy0.mp4",
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338385/129_-_Nicolette_Fleischmann_-_11824_SW_Antarus_Ct_Port_St_Lucie-V2_snvjoz.mp4",
-
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338385/Project_4-_d0va5s.mp4",
+      caption: "Project Showcase 2024"
+    },
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338349/For_Profile_nvyveu.mp4",
+      caption: "Professional Profile Video"
+    },
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338407/With_Mo_wcmprg.mp4",
+      caption: "Behind The Scenes"
+    },
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338415/Test2_vtxkve.mp4",
+      caption: "Creative Test Session"
+    },
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338323/Assingmanet_dxppy0.mp4",
+      caption: "Assignment Preview"
+    },
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338385/129_-_Nicolette_Fleischmann_-_11824_SW_Antarus_Ct_Port_St_Lucie-V2_snvjoz.mp4",
+      caption: "Property Tour | Port St. Lucie"
+    }
   ];
 
   let landscapeVideos = [
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338544/Job_1_After_Revision_jtwfsy.mp4",
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761384842/T-002-Oude_Nieuwelandseweg_3_Final_2_o9viuy.mp4",
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761384812/Michael_Fk_Liam_Thomas_-_Hold_Me.Mp3_rd1k9b.mp4",
-    "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338560/T-006_o2fhun.mp4",
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338555/T-003-Vossenlaan_24_Final_4_c0ctmk.mp4",
+      caption: "Vossenlaan 24 - Stunning Home Tour"
+    },
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338544/Job_1_After_Revision_jtwfsy.mp4",
+      caption: "Project Completion | Final Edit"
+    },
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761384842/T-002-Oude_Nieuwelandseweg_3_Final_2_o9viuy.mp4",
+      caption: "Oude Nieuwelandseweg 3 Showcase"
+    },
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761384812/Michael_Fk_Liam_Thomas_-_Hold_Me.Mp3_rd1k9b.mp4",
+      caption: "Cinematic Experience | Hold Me"
+    },
+    {
+      url: "https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338560/T-006_o2fhun.mp4",
+      caption: "Project T-006 | Highlights"
+    }
   ];
-
   // Add this array at the top with your other arrays
   const resumeData = {
     pdfUrl: "/assets/suhail-resume.pdf", // Update with your actual PDF path
@@ -128,13 +161,13 @@ export default function Home() {
               </i>
 
               <i className="bi bi-phone d-flex align-items-center ms-4">
-                <span>+92 349 9535028</span>
+                <span>+4 47853748582</span>
               </i>
             </div>
 
             <div className="social-links d-none d-md-flex align-items-center">
               <a href="#" className="facebook"><i className="bi bi-facebook"></i></a>
-              <a href="#" className="instagram"><i className="bi bi-instagram"></i></a>
+              <a href="https://www.instagram.com/karrarvisuals/" className="instagram"><i className="bi bi-instagram"></i></a>
               <a href="#" className="linkedin"><i className="bi bi-linkedin"></i></a>
             </div>
           </div>
@@ -209,68 +242,127 @@ export default function Home() {
           <div className="row gy-5">
             <div className="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="600">
               <div className="team-member">
-                <div className="member-img" style={{ aspectRatio: '9/16', overflow: 'hidden' }}>
+                <div className="member-img" style={{ aspectRatio: '9/16', overflow: 'hidden', position: 'relative' }}>
                   <video
-                    src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338385/Project_4-_d0va5s.mp4"
+                    src={portraitVideos[0].url}
                     className="img-fluid"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     controls
                     preload="metadata"
+                    onPlay={(e) => e.target.nextElementSibling?.classList.add('d-none')}
+                    onPause={(e) => e.target.nextElementSibling?.classList.remove('d-none')}
                     alt=""
                   />
+                  <div
+                    className="video-caption"
+                    style={{
+                      position: 'absolute',
+                      bottom: '60px',
+                      left: '10px',
+                      right: '10px',
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1))',
+                      color: 'white',
+                      padding: '12px 16px',
+                      borderRadius: '8px',
+                      fontSize: '15px',
+                      fontWeight: '600',
+                      letterSpacing: '0.3px',
+                      pointerEvents: 'none',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    {portraitVideos[0].caption}
+                  </div>
                 </div>
               </div>
             </div>
-            {portraitVideos.slice(1).map((videoSrc, index) => (
-              <div key={index} className="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay={600 + (index + 0) * 100}>
+            {portraitVideos.slice(1).map((video, index) => (
+              <div key={index} className="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay={600 + (index + 1) * 100}>
                 <div className="team-member">
-                  <div className="member-img" style={{ aspectRatio: '9/16', overflow: 'hidden' }}>
+                  <div className="member-img" style={{ aspectRatio: '9/16', overflow: 'hidden', position: 'relative' }}>
                     <video
-                      src={videoSrc}
+                      src={video.url}
                       className="img-fluid"
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       controls
                       preload="metadata"
+                      onPlay={(e) => e.target.nextElementSibling?.classList.add('d-none')}
+                      onPause={(e) => e.target.nextElementSibling?.classList.remove('d-none')}
                       alt=""
                     />
+                    <div
+                      className="video-caption"
+                      style={{
+                        position: 'absolute',
+                        bottom: '60px',
+                        left: '10px',
+                        right: '10px',
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1))',
+                        color: 'white',
+                        padding: '12px 16px',
+                        borderRadius: '8px',
+                        fontSize: '15px',
+                        fontWeight: '600',
+                        letterSpacing: '0.3px',
+                        pointerEvents: 'none',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                      }}
+                    >
+                      {video.caption}
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
-
-
           </div>
         </div>
 
       </section>
 
       <section id="videos" className="videos section">
-
         <div className="container section-title" data-aos="fade-up">
         </div>
         <div className="container">
-
           <div className="row gy-4">
-
             <div className="" data-aos="fade-up" data-aos-delay="250">
               <div className="content ps-0 ps-lg-5">
-
                 <div className="position-relative mt-4">
                   <video
                     className="img-fluid rounded-4"
                     controls
                     preload="metadata"
                     style={{ width: '100%' }}
+                    onPlay={(e) => e.target.nextElementSibling?.classList.add('d-none')}
+                    onPause={(e) => e.target.nextElementSibling?.classList.remove('d-none')}
                   >
-                    <source src="https://res.cloudinary.com/dijdzmfvn/video/upload/v1761338555/T-003-Vossenlaan_24_Final_4_c0ctmk.mp4" type="video/mp4" />
+                    <source src={landscapeVideos[0].url} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
+                  <div
+                    className="video-caption"
+                    style={{
+                      position: 'absolute',
+                      bottom: '65px',
+                      left: '20px',
+                      right: '20px',
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1))',
+                      color: 'white',
+                      padding: '14px 20px',
+                      borderRadius: '10px',
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      letterSpacing: '0.4px',
+                      pointerEvents: 'none',
+                      boxShadow: '0 4px 15px rgba(0,0,0,0.4)'
+                    }}
+                  >
+                    {landscapeVideos[0].caption}
+                  </div>
                 </div>
               </div>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap' }} data-aos="fade-up" data-aos-delay="250">
-
-              {landscapeVideos.map((videoSrc, index) => (
+              {landscapeVideos.slice(1).map((video, index) => (
                 <div key={index} className="col-lg-6 content ps-0 ps-lg-5">
                   <div className="position-relative mt-4">
                     <video
@@ -278,19 +370,38 @@ export default function Home() {
                       controls
                       preload="metadata"
                       style={{ width: '100%' }}
+                      onPlay={(e) => e.target.nextElementSibling?.classList.add('d-none')}
+                      onPause={(e) => e.target.nextElementSibling?.classList.remove('d-none')}
                     >
-                      <source src={videoSrc} type="video/mp4" />
+                      <source src={video.url} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
+                    <div
+                      className="video-caption"
+                      style={{
+                        position: 'absolute',
+                        bottom: '65px',
+                        left: '20px',
+                        right: '20px',
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1))',
+                        color: 'white',
+                        padding: '14px 20px',
+                        borderRadius: '10px',
+                        fontSize: '16px',
+                        fontWeight: '600',
+                        letterSpacing: '0.4px',
+                        pointerEvents: 'none',
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.4)'
+                      }}
+                    >
+                      {video.caption}
+                    </div>
                   </div>
                 </div>
               ))}
-
             </div>
           </div>
-
         </div>
-
       </section>
 
       <section id="about" className="about section">
@@ -301,6 +412,38 @@ export default function Home() {
           <h2>Karrar Visuals is a creative studio specializing in real estate and commercial video editing, storytelling, and visual branding. We combine artistic vision with technical precision to produce videos that not only look stunning but also deliver results.
           </h2>
         </div>
+      </section>
+
+      <section id="stats" className="stats section light-background">
+
+        <div className="container section-title" data-aos="fade-up">
+          <h2>Our Clients</h2>
+        </div>
+        <div className="container" data-aos="fade-up" data-aos-delay="100">
+
+          <div className="row gy-4">
+
+            <div className="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+              <img src="assets/img/descr_CMYK.png" alt="Client Logo" style={{ height: '60px', marginRight: '10px' }} />
+            </div>
+
+            <div className="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+              <img src="assets/img/Koudijs.jpg" alt="Client Icon" style={{ height: '60px', marginRight: '10px' }} />
+            </div>
+
+            <div className="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+              <img src="assets/img/Vertical.png" alt="Client Icon" style={{ height: '60px', marginRight: '10px' }} />
+
+            </div>
+
+            <div className="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+              <img src="assets/img/zwart.jpg" alt="Client Icon" style={{ height: '60px', marginRight: '10px' }} />
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
 
       <section id="stats" className="stats section light-background">
@@ -546,7 +689,7 @@ export default function Home() {
               <div className="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
                 <i className="bi bi-telephone"></i>
                 <h3>Call Us</h3>
-                <p>+92 349 9535028</p>
+                <p>+4 47853748582</p>
               </div>
             </div>
 
@@ -653,7 +796,7 @@ export default function Home() {
               <div className="footer-contact pt-3">
                 <p>Islamabad Pakistan</p>
                 <p></p>
-                <p className="mt-3"><strong>Phone:</strong> <span>+92 349 9535028</span></p>
+                <p className="mt-3"><strong>Phone:</strong> <span>+4 47853748582</span></p>
                 <p><strong>Email:</strong> <span>karrarvisuals@digitalempowermentnetwork.org</span></p>
               </div>
               <div className="social-links d-flex mt-4">
